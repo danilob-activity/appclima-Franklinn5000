@@ -1,7 +1,12 @@
 package com.londonappbrewery.climapm;
 
+import android.content.Context;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,6 +25,8 @@ public class WeatherController extends AppCompatActivity {
 
     // TODO: Set LOCATION_PROVIDER here:
 
+    String LOCATION_PROVIDER = LocationManager.GPS_PROVIDER;
+    final String LOGCAT_TAG = "Clima";
 
 
 
@@ -29,7 +36,8 @@ public class WeatherController extends AppCompatActivity {
     TextView mTemperatureLabel;
 
     // TODO: Declare a LocationManager and a LocationListener here:
-
+    LocationManager mLocationManager;
+    LocationListener mLocationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,15 +51,38 @@ public class WeatherController extends AppCompatActivity {
         ImageButton changeCityButton = (ImageButton) findViewById(R.id.changeCityButton);
 
 
-
         // TODO: Add an OnClickListener to the changeCityButton here:
+
+
 
     }
 
 
     // TODO: Add onResume() here:
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(LOGCAT_TAG, "onResume() called");
+        getWeatherForCurrentLocation();
+    }
 
-
+    private void getWeatherForCurrentLocation() {
+        mLocationManager = (LocationManager) getSystemService(Context. LOCATION_SERVICE);
+        mLocationListener = new LocationListener() {
+            @Override
+            public void onLocationChanged(Location location) {
+            }
+            @Override
+            public void onStatusChanged(String s, int i, Bundle bundle) {
+            }
+            @Override
+            public void onProviderEnabled(String s) {
+            }
+            @Override
+            public void onProviderDisabled(String s) {
+            }
+        };
+    }
 
     // TODO: Add getWeatherForNewCity(String city) here:
 
