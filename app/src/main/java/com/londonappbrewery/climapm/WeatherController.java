@@ -51,6 +51,7 @@ public class WeatherController extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
     }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.weather_controller_layout);
@@ -63,7 +64,6 @@ public class WeatherController extends AppCompatActivity {
 
 
         // TODO: Add an OnClickListener to the changeCityButton here:
-
 
 
 
