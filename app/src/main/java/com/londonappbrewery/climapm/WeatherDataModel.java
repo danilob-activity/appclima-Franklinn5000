@@ -4,31 +4,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class WeatherDataModel {
-
-    private static int condition;
     String mTemperature;
     int mCondition;
     String mCity;
     String mIconName;
-    public static WeatherDataModel fromJson(JSONObject jsonObject){
-    }
-    private static String updateWeatherIcon( int condition) {
-    }
-    public String getTemperature() {
-        return mTemperature +"°";
-    }
-    public String getCity() {
-        return mCity;
-    }
-    public String getIconName() {
-        return mIconName;
-    }
-}
-    // TODO: Declare the member variables here
-
-
-
-    // TODO: Create a WeatherDataModel from a JSON:
     public static WeatherDataModel fromJson(JSONObject jsonObject){
         try{
             WeatherDataModel weatherData = new WeatherDataModel();
@@ -45,10 +24,24 @@ public class WeatherDataModel {
         }
     }
 
+    public String getTemperature() {
+        return mTemperature +"°";
+    }
+    public String getCity() {
+        return mCity;
+    }
+    public String getIconName() {
+        return mIconName;
+    }
+
+    // TODO: Declare the member variables here
+
+
+    // TODO: Create a WeatherDataModel from a JSON:
+
 
     // TODO: Uncomment to this to get the weather image name from the condition:
     private static String updateWeatherIcon(int condition) {
-        WeatherDataModel.condition = condition;
 
         if (condition >= 0 && condition < 300) {
             return "tstorm1";
@@ -79,10 +72,7 @@ public class WeatherDataModel {
         return "dunno";
     }
 
-
     // TODO: Create getter methods for temperature, city, and icon name:
-
-        
 
 
 
